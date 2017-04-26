@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', function() {
-    return redirect('cat');
-});
+// Route::get('/', function() {
+//     return redirect('cat');
+// });
 
 Route::get('cats', function() {
     return 'All Cats';
