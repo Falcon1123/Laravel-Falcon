@@ -19,4 +19,14 @@ Route::get('/', function() {
     return redirect('cat');
 });
 
+Route::get('cats', function() {
+    return 'All Cats';
+});
 
+Route::get('cats/{id}', function($id) {
+    return sprintf('Cat #%s', $id);
+})->where('id','[0-9]+');
+
+Route::get('about',function(){
+    return view('about')->with('numberofcats',9000);
+});

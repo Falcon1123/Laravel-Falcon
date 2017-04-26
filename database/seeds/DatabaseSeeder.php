@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+// use furbook\BreedsTableSeeder;
+use Illuminate\Database\Eloquent\Model;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,6 +13,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // Eloquent::unguard();
         // $this->call(UsersTableSeeder::class);
+        $this->call(BreedsTableSeeder::class);
     }
 }
