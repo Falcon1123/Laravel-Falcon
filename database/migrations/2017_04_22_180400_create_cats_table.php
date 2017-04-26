@@ -14,7 +14,7 @@ class CreateCatsTable extends Migration
     public function up()
     {
         Schema::create('cats', function (Blueprint $table) {
-           $table->increments('id');
+            $table->increments('id');
             $table->string('name');
             $table->date('date_of_birth');
             $table->integer('breed_id')->unsigned()->nullable();

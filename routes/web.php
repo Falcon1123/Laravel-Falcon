@@ -20,7 +20,30 @@ Route::get('/', function () {
 // });
 
 Route::get('cats', function() {
-    return 'All Cats';
+    $cats = furbook\Cat::all();
+    return view('cats.index')->with('cats',$cats);
+});
+
+Route::get('cats/breeds/{name}', function($name) {
+    $breed = furbook\Breed::with('cats')
+        ->whereName($name)
+        ->first();
+
+    $colnames = furbook\Cat::getTableColumns();
+
+    // foreach($breed->cats as $key => $cat)
+    // {
+    //     var_dump($cat->date_of_birth);
+    // }
+
+    // // var_dump($breed->cats->toarray()["date_of_birth"]);
+    // exit;
+
+    return view('cats.index')
+        ->with('breed',$breed)
+        ->with('cats',$breed->cats)
+        ->with('colnames',$colnames);
+    
 });
 
 Route::get('cats/{id}', function($id) {

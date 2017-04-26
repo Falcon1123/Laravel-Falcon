@@ -10,6 +10,9 @@ class Cat extends Model
     public function breed() {
         return $this->belongsTo('furbook\Breed');
     }
+    public static function getTableColumns() {
+        return Cat::getModel()->getConnection()->getSchemaBuilder()->getColumnListing(Cat::getModel()->getTable());
+    }
 }
 
 ?>
