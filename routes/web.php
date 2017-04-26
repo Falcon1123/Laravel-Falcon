@@ -21,7 +21,8 @@ Route::get('/', function () {
 
 Route::get('cats', function() {
     $cats = furbook\Cat::all();
-    return view('cats.index')->with('cats',$cats);
+    $colnames = furbook\Cat::getTableColumns();
+    return view('cats.index')->with('cats',$cats)->with('names',$colnames);
 });
 
 Route::get('cats/breeds/{name}', function($name) {
@@ -46,10 +47,12 @@ Route::get('cats/breeds/{name}', function($name) {
     
 });
 
-Route::get('cats/{id}', function($id) {
-    return sprintf('Cat #%s', $id);
-})->where('id','[0-9]+');
-
+Route::get('cats/{cat}', function(furbook\Cat $cat) {
+    // $cat = furbook\Cat::find($id);
+    return view('cats.show')->with('cat',$cat);
+});
+// ->with('cat',$cat)
+// ->where('id','[0-9]+')
 Route::get('about',function(){
     return view('about')->with('numberofcats',9000);
 });

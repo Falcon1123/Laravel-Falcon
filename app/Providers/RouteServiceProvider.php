@@ -24,8 +24,13 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-
+        
         parent::boot();
+        Route::model('cat','furbook\Cat');
+
+        Route::bind('cat',function($value) {
+            return furbook\Cat::where('name',$value)->first();
+        });
     }
 
     /**

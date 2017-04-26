@@ -11,17 +11,19 @@
 @section('content')
     <table class="table table-striped table-bordered">
         <thead>
-            @foreach($colnames as $name)
+            @foreach($names as $name)
                 <th>{{ $name }}</th>
             @endforeach
         </thead>
         <tbody>
         @foreach($cats as $key => $cat)
             <tr>
-                    <td>{{ $key + 1 }}</td>
-                    <td>{{ $cat->name }}</td>
-                    <td>{{ $cat->date_of_birth }}</td>
-                    <td>{{ $cat->breed->name }}</td>
+                <td>
+                    <a href="{{ url('cats/'.$cat->id) }}">{{ $key + 1 }}</a>
+                </td>
+                <td><a href="{{ url('cats/'.$cat->name) }}">{{ $cat->name }}</a></td>
+                <td>{{ $cat->date_of_birth }}</td>
+                <td>{{ $cat->breed->name }}</td>
             </tr>
         @endforeach
         </tbody>
