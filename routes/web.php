@@ -43,7 +43,7 @@ Route::get('cats/breeds/{name}', function($name) {
     return view('cats.index')
         ->with('breed',$breed)
         ->with('cats',$breed->cats)
-        ->with('colnames',$colnames);
+        ->with('names',$colnames);
     
 });
 

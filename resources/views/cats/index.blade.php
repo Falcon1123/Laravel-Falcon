@@ -28,4 +28,6 @@
         @endforeach
         </tbody>
     </table>
+    <div id="map_canvas" style="width:700px; height:500px; margin-left:80px;" ></div>
+    <!--<button onclick="displayMap()">Show Map</button>-->
 @stop

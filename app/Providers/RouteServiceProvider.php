@@ -4,6 +4,7 @@ namespace furbook\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use furbook\Cat;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -26,10 +27,10 @@ class RouteServiceProvider extends ServiceProvider
         //
         
         parent::boot();
-        Route::model('cat','furbook\Cat');
+//        Route::model('cat','furbook\Cat');
 
         Route::bind('cat',function($value) {
-            return furbook\Cat::where('name',$value)->first();
+            return Cat::where('name',$value)->first();
         });
     }
 
